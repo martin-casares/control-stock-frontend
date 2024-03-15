@@ -2,6 +2,10 @@
 	background-image: linear-gradient(rgba(151, 7, 12, 0.5), rgba(5, 12, 7, 0.5)),
 		url('https://concepto.de/wp-content/uploads/2018/10/URL1-e1538664720680-800x400.jpg');
 } */
+
+.login {
+	margin-top: 100px;
+}
 .form_container {
 	width: 30%;
 }

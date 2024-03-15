@@ -7,12 +7,18 @@ export const CardDash = ({ title, total }) => {
 		<div className="container-fluid">
 			<div className="row g-2 my-5">
 				<div className="col ">
-					<div className=" bg-white shadow-sm">
+					<div className="shadow-sm border rounded bg-dark">
 						<div className="p-2">
-							<p className="fs-5">{title}</p>
+							<p className="fs-3">{title}</p>
 						</div>
-						<div style={{ display: 'flex', margin: '10px' }}>
-							<h3 className="fs-2">{total}</h3>
+						<div
+							style={{
+								display: 'flex',
+								margin: '10px',
+								justifyContent: 'space-between',
+							}}
+						>
+							<h3 className="fs-1">{total}</h3>
 							<FaUsers size={50} className=" " />
 						</div>
 					</div>

@@ -53,7 +53,6 @@ export const CategoryTable = ({ categories, setCategories }) => {
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Categoria</th>
-						<th scope="col">Descripción</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -62,7 +61,7 @@ export const CategoryTable = ({ categories, setCategories }) => {
 						<tr key={index}>
 							<th scope="row">{index + 1}</th>
 							<td>{category.name}</td>
-							<td>{category.description}</td>
+
 							<td>
 								<button
 									className="btn btn-success mx-1"

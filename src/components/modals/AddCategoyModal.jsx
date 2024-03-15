@@ -6,7 +6,6 @@ import { addCategory } from '../../api/adminCategory.js';
 export const AddCategoryModal = ({ closeModal }) => {
 	const [category, setCategory] = useState({
 		name: '',
-		description: '',
 	});
 	const [error, setError] = useState('');
 
@@ -16,9 +15,9 @@ export const AddCategoryModal = ({ closeModal }) => {
 	};
 
 	const handleSaveChanges = async () => {
-		const { name, description } = category;
+		const { name } = category;
 
-		if (!name || !description) {
+		if (!name) {
 			setError('Por favor, complete todos los campos.');
 			return;
 		}
@@ -57,7 +56,7 @@ export const AddCategoryModal = ({ closeModal }) => {
 						onChange={handleInputChange}
 					/>
 				</div>
-				<div className="mb-3">
+				{/* <div className="mb-3">
 					<label htmlFor="description" className="form-label">
 						Descripción
 					</label>
@@ -69,7 +68,7 @@ export const AddCategoryModal = ({ closeModal }) => {
 						value={category.description}
 						onChange={handleInputChange}
 					/>
-				</div>
+				</div> */}
 			</Modal.Body>
 			<Modal.Footer>
 				<button className="btn btn-primary" onClick={handleSaveChanges}>

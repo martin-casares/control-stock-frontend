@@ -66,8 +66,8 @@ export const RegisterPage = () => {
 	};
 
 	return (
-		<div className="register template d-flex justify-content-center align-items-center vh-100 bg-primary">
-			<div className="form_container p-5 rounded bg-white">
+		<div className="register template d-flex justify-content-center align-items-center vh-100">
+			<div className="form_container p-5 rounded border">
 				<form
 					onSubmit={(e) =>
 						handleRegister(

@@ -13,7 +13,8 @@ export const ProductCard = ({ product }) => {
 			/>
 			<Card.Body>
 				<Card.Title>
-					{product.name && product.description.substring(0, 21)}
+					{product.name}
+					{/* {product.description.substring(0, 21)} */}
 				</Card.Title>
 				<Link className="btn fw-bold " to={`/product${product.key}`}>
 					Ver Mas

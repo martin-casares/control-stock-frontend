@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 
 import { addProduct } from '../../api/adminProducts.js';
+import { getCategories } from '../../api/adminCategory';
 
 export const AddProductModal = ({ closeModal }) => {
 	const [product, setProduct] = useState({
@@ -13,6 +14,8 @@ export const AddProductModal = ({ closeModal }) => {
 		image: '',
 	});
 	const [error, setError] = useState('');
+	const [selectedCategory, setSelectedCategory] = useState('');
+	const [categories, setCategories] = useState([]);
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
@@ -28,8 +31,17 @@ export const AddProductModal = ({ closeModal }) => {
 		}
 
 		try {
-			console.log(product);
-			const success = await addProduct(product);
+			const categoryId = selectedCategory;
+			const newProduct = {
+				name,
+				description,
+				price,
+				stock,
+				image,
+				category: categoryId,
+			};
+			console.log(newProduct);
+			const success = await addProduct(newProduct);
 			if (success) {
 				closeModal();
 			}
@@ -41,6 +53,18 @@ export const AddProductModal = ({ closeModal }) => {
 			);
 		}
 	};
+
+	useEffect(() => {
+		const fetchCategories = async () => {
+			try {
+				const fetchedCategories = await getCategories();
+				setCategories(fetchedCategories);
+			} catch (error) {
+				console.error('Error al obtener las categorias:', error);
+			}
+		};
+		fetchCategories();
+	}, [categories]);
 
 	return (
 		<Modal show={true} onHide={closeModal}>
@@ -104,19 +128,7 @@ export const AddProductModal = ({ closeModal }) => {
 						onChange={handleInputChange}
 					/>
 				</div>
-				{/* 	<div className="mb-3">
-					<label htmlFor="category" className="form-label">
-						Categoría
-					</label>
-					<input
-						type="text"
-						className="form-control"
-						id="category"
-						name="category"
-						value={product.category}
-						onChange={handleInputChange}
-					/>
-				</div> */}
+
 				<div className="mb-3">
 					<label htmlFor="image" className="form-label">
 						Imagen url
@@ -128,6 +140,21 @@ export const AddProductModal = ({ closeModal }) => {
 						name="image"
 						onChange={handleInputChange}
 					/>
+				</div>
+				<div>
+					<label htmlFor="category">Categoría: </label>
+					<select
+						id="category"
+						value={selectedCategory}
+						onChange={(e) => setSelectedCategory(e.target.value)}
+					>
+						<option value="">Selecciona una categoría</option>
+						{categories.map((category) => (
+							<option key={category._id} value={category._id}>
+								{category.name}
+							</option>
+						))}
+					</select>
 				</div>
 			</Modal.Body>
 			<Modal.Footer>

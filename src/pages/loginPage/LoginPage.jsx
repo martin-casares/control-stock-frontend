@@ -47,8 +47,8 @@ export const LoginPage = () => {
 		postLogin(email, password);
 	};
 	return (
-		<div className="login template d-flex justify-content-center align-items-center vh-100 bg-primary">
-			<div className="form_container p-5 rounded bg-white">
+		<div className="login d-flex justify-content-center align-items-center">
+			<div className="form_container p-5 rounded border">
 				<form onSubmit={handleLogin}>
 					<h3 className="text-center">Login</h3>
 					{error && <div className="alert alert-danger">{error}</div>}
@@ -80,7 +80,7 @@ export const LoginPage = () => {
 							className="custom-control custom-checkbox"
 							id="check"
 						/>
-						<label htmlFor="check" className="custom-input-label ms-2">
+						<label htmlFor="check" className="custom-input-label mx-2">
 							Recuerdame
 						</label>
 					</div>
