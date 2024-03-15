@@ -1,0 +1,19 @@
+/* .login {
+	background-image: linear-gradient(rgba(151, 7, 12, 0.5), rgba(5, 12, 7, 0.5)),
+		url('https://concepto.de/wp-content/uploads/2018/10/URL1-e1538664720680-800x400.jpg');
+} */
+.form_container {
+	width: 30%;
+}
+
+@media screen and (max-width: 1000px) {
+	.form_container {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.form_container {
+		width: 65%;
+	}
+}
