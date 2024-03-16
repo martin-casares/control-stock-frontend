@@ -22,7 +22,7 @@ export const AddUserModal = ({ closeModal }) => {
 	const handleSaveChanges = async () => {
 		const { firstName, lastName, email, rol, password } = user;
 
-		if (!firstName || !lastName || !email || !rol || !password) {
+		if (!firstName || !lastName || !email || !password) {
 			setError('Por favor, complete todos los campos.');
 			return;
 		}
@@ -111,19 +111,19 @@ export const AddUserModal = ({ closeModal }) => {
 						value={user.rol}
 						onChange={handleInputChange}
 					/>
-					<div className="mb-3">
-						<label htmlFor="rol" className="form-label">
-							Password
-						</label>
-						<input
-							type="password"
-							className="form-control"
-							id="password"
-							name="password"
-							value={user.password}
-							onChange={handleInputChange}
-						/>
-					</div>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="rol" className="form-label">
+						Password
+					</label>
+					<input
+						type="password"
+						className="form-control"
+						id="password"
+						name="password"
+						value={user.password}
+						onChange={handleInputChange}
+					/>
 				</div>
 			</Modal.Body>
 			<Modal.Footer>

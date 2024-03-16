@@ -142,8 +142,9 @@ export const AddProductModal = ({ closeModal }) => {
 					/>
 				</div>
 				<div>
-					<label htmlFor="category">Categoría: </label>
+					<label htmlFor="category">Categoría</label>
 					<select
+						className="form-select"
 						id="category"
 						value={selectedCategory}
 						onChange={(e) => setSelectedCategory(e.target.value)}
