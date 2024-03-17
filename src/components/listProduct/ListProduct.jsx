@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { Row, Col } from 'react-bootstrap';
+import './listProduct.css';
+
 import { ProductCard } from '../productCard/ProductCard';
 
 import { getProducts } from '../../api/adminProducts';
@@ -75,31 +76,41 @@ export const ListProduct = ({ searchTerm }) => {
 
 	return (
 		<div>
-			<div className="w-25 mx-auto mb-5">
+			<div className="select-container m-auto col-xs-12 col-sm-8 col-md-6 col-lg-4  mb-5">
 				<select
-					className="form-select "
+					className="form-select"
+					aria-label="Size 3 select"
 					id="category"
 					value={selectedCategory}
 					onChange={(e) => setSelectedCategory(e.target.value)}
 				>
-					<option value="">Categorías</option>
+					<option className="select-option" value="">
+						Todas las Categorías
+					</option>
 					{categories.map((category) => (
-						<option key={category._id} value={category._id}>
+						<option
+							className="select-option"
+							key={category._id}
+							value={category._id}
+						>
 							{category.name}
 						</option>
 					))}
 				</select>
 			</div>
 			{loading ? (
-				<Row xs={1} md={2} lg={4} className="m-3">
+				<div className="row ">
 					{filteredProducts.map((product) => {
 						return (
-							<Col key={product._id}>
+							<div
+								className="col-xs-12 col-sm-6 col-md-6 col-lg-4 mx-auto"
+								key={product._id}
+							>
 								<ProductCard product={product} />
-							</Col>
+							</div>
 						);
 					})}
-				</Row>
+				</div>
 			) : (
 				<p>Cargando...</p>
 			)}

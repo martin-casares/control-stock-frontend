@@ -1,19 +1,12 @@
 import React from 'react';
 
+import './header.css';
+
 export const Header = () => {
 	return (
 		<>
-			<div className="text-center py-3" style={{ width: '100%' }}>
-				<h2
-					style={{
-						textTransform: 'capitalize',
-						fontSize: '60px',
-						fontWeight: 'bold',
-						margin: '30px',
-					}}
-				>
-					Find your product.
-				</h2>
+			<div className="header-container text-center py-3 mx-1">
+				<h2 className="header-title text-success-emphasis">Find your product.</h2>
 				<br />
 				<div className="w-50 " style={{ margin: 'auto' }}>
 					{/* <p className="text-center">

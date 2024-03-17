@@ -1,0 +1,26 @@
+.nav-container {
+	padding: 0.5rem 5rem !important;
+}
+@media (max-width: 280px) {
+	.nav-container {
+		padding: 0.4rem 1rem !important;
+	}
+}
+
+@media (max-width: 375px) {
+	.nav-container {
+		padding: 0.4rem 2rem !important;
+	}
+}
+
+@media (max-width: 414px) {
+	.nav-container {
+		padding: 0.4rem 2rem !important;
+	}
+}
+
+@media (max-width: 430px) {
+	.nav-container {
+		padding: 0.4rem 2rem !important;
+	}
+}

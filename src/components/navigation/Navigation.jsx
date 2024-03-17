@@ -4,6 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUserCircle } from 'react-icons/fa';
 
+import './navigation.css';
+
 export const Navigation = () => {
 	const navigate = useNavigate();
 	const user = JSON.parse(localStorage.getItem('user'));
@@ -14,7 +16,7 @@ export const Navigation = () => {
 	};
 
 	return (
-		<Navbar expand="lg" style={{ padding: ' 0.5rem 4rem' }}>
+		<Navbar expand="lg nav-container">
 			<Navbar.Brand as={Link} to="/">
 				<strong style={{ fontSize: '40px', textTransform: 'uppercase' }}>TP</strong>
 			</Navbar.Brand>
