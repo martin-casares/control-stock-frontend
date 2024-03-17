@@ -1,0 +1,48 @@
+/* media query fold */
+@media (max-width: 280px) {
+	.select-container {
+		margin: auto;
+		width: 14rem !important;
+	}
+}
+
+/* media query iphone12 */
+@media (max-width: 390px) {
+	.select-container {
+		width: 18rem;
+	}
+	.select-option {
+		font-size: 0.7rem;
+		width: 10rem;
+	}
+}
+
+@media (max-width: 414px) {
+	.select-container {
+		width: 20rem;
+	}
+}
+
+@media (min-width: 425px) {
+	.select-container {
+		width: 25rem;
+	}
+	.select-option {
+		font-size: 0.7rem;
+		width: 10rem;
+	}
+}
+
+/* media query md */
+@media (min-width: 765px) {
+	.select-option {
+		font-size: 1rem;
+	}
+}
+
+/* media query xxl */
+@media (min-width: 1200px) {
+	.select-option {
+		font-size: 1rem;
+	}
+}

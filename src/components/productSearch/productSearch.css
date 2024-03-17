@@ -1,0 +1,111 @@
+.div-input {
+	background-color: #30115e;
+	padding: 12px 32px;
+	outline: none;
+	border: solid 1px #999;
+	border-radius: 5px;
+	width: 700px;
+	box-shadow: 2px 3px 5px #777;
+	opacity: 0.9;
+	margin-bottom: 10px;
+}
+
+.input-search {
+	padding: 10px;
+	outline: none;
+	border: none;
+
+	box-shadow: none;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+/* fold */
+@media (max-width: 280px) {
+	.div-input {
+		max-width: 16rem !important;
+		margin-left: 5px;
+		padding: 4px 7px;
+	}
+	.input-search {
+		font-size: 11px;
+	}
+}
+
+@media (max-width: 360px) {
+	.div-input {
+		width: 20rem !important;
+		margin-bottom: 10px;
+		padding: 4px 10px;
+	}
+	.input-search {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 375px) {
+	.div-input {
+		width: 21rem !important;
+		margin-bottom: 10px;
+		padding: 4px 10px;
+	}
+	.input-search {
+		font-size: 14px;
+	}
+}
+
+/* media query iphone12 */
+@media (min-width: 390px) {
+	.div-input {
+		width: 20rem;
+		margin-bottom: 10px;
+		padding: 4px 10px;
+	}
+	.input-search {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 414px) {
+	.div-input {
+		width: 20rem;
+		margin-bottom: 10px;
+		padding: 4px 10px;
+	}
+	.input-search {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 430px) {
+	.div-input {
+		width: 24rem;
+		margin-bottom: 10px;
+		padding: 4px 10px;
+	}
+	.input-search {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 540px) {
+	.div-input {
+		width: 26rem !important;
+		margin-bottom: 10px;
+		padding: 4px 10px;
+	}
+	.input-search {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 750px) {
+	.div-input {
+		width: 37rem !important;
+		margin-bottom: 10px;
+		padding: 4px 10px;
+	}
+	.input-search {
+		font-size: 18px;
+	}
+}

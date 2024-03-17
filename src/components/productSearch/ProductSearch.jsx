@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
+import './productSearch.css';
+
 export const ProductSearch = ({ setSearchTerm }) => {
 	const [value, setValue] = useState('');
 	const [error, setError] = useState(false);
@@ -25,7 +27,7 @@ export const ProductSearch = ({ setSearchTerm }) => {
 
 	return (
 		<>
-			<div className="d-flex justify-content-center mb-5">
+			<div className="d-flex justify-content-center mb-5 col-xs-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
 				<form onSubmit={handleSubmit}>
 					{error ? (
 						<div className="error alert alert-danger m-3">
@@ -34,31 +36,9 @@ export const ProductSearch = ({ setSearchTerm }) => {
 					) : (
 						''
 					)}
-					<div
-						style={{
-							backgroundColor: 'gray',
-							padding: '12px 42px',
-							outline: 'none',
-							border: 'solid 1px #999',
-							borderRadius: '35px',
-							width: '800px',
-							boxShadow: '2px 3px 5px #000',
-							opacity: 0.9,
-							marginBottom: '30px',
-						}}
-						className="d-flex"
-					>
+					<div className="div-input d-flex" style={{ outline: 'none' }}>
 						<input
-							className="form-control"
-							style={{
-								padding: '10px',
-								outline: 'none', // Quitar el borde azul
-								border: 'none',
-								backgroundColor: 'gray',
-								boxShadow: 'none',
-								fontSize: '20px',
-								fontWeight: 'bold',
-							}}
+							className="form-control input-search"
 							type="text"
 							placeholder="Buscar Producto"
 							onChange={handleChange}
@@ -68,7 +48,7 @@ export const ProductSearch = ({ setSearchTerm }) => {
 							type="submit"
 							className=""
 							style={{
-								color: 'white',
+								color: 'text-secondary',
 								backgroundColor: 'transparent',
 								border: 'none',
 							}}
