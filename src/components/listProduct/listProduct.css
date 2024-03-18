@@ -13,13 +13,15 @@
 	}
 	.select-option {
 		font-size: 0.7rem;
-		width: 10rem;
 	}
 }
 
-@media (max-width: 414px) {
+@media (max-width: 412px) {
 	.select-container {
 		width: 20rem;
+	}
+	.select-option {
+		font-size: 0.6rem;
 	}
 }
 
@@ -29,14 +31,14 @@
 	}
 	.select-option {
 		font-size: 0.7rem;
-		width: 10rem;
 	}
 }
 
 /* media query md */
-@media (min-width: 765px) {
+@media (min-width: 768px) {
 	.select-option {
-		font-size: 1rem;
+		font-size: 0.6rem;
+		width: 15px;
 	}
 }
 

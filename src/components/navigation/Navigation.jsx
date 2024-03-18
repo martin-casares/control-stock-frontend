@@ -29,8 +29,9 @@ export const Navigation = () => {
 					<Nav.Link as={Link} to="/about">
 						<strong>Sobre Nosotros</strong>
 					</Nav.Link>
+
 					{user ? (
-						<Nav.Link as={Link} to="/favorites">
+						<Nav.Link as={Link} to="/contact">
 							<strong>Contacto</strong>
 						</Nav.Link>
 					) : (
