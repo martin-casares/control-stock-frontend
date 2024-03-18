@@ -60,6 +60,7 @@ export const LoginPage = () => {
 							className="form-control"
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
+							maxLength={30}
 						/>
 					</div>
 
@@ -71,6 +72,7 @@ export const LoginPage = () => {
 							className="form-control"
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
+							maxLength={30}
 						/>
 					</div>
 

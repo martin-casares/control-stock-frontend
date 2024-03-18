@@ -5,6 +5,9 @@ import { LoginPage } from './pages/loginPage/LoginPage';
 import { Dashboard } from './pages/dashboard/Dashboard';
 import { Home } from './pages/homePage/Home';
 import { Navigation } from './components/navigation/Navigation';
+import { ContactPage } from './pages/contactPage/ContactPage';
+
+import { Page404 } from './pages/Page404/Page404';
 
 function App() {
 	return (
@@ -14,7 +17,9 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/register" element={<RegisterPage />} />
+				<Route path="/contact" element={<ContactPage />} />
 				<Route path="/dashboard" element={<Dashboard />} />
+				<Route path="/*" element={<Page404 />} />
 			</Routes>
 		</BrowserRouter>
 	);
