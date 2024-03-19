@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUserCircle } from 'react-icons/fa';
 
 import './navigation.css';
+import { useState } from 'react';
 
 export const Navigation = () => {
 	const navigate = useNavigate();
@@ -22,22 +23,32 @@ export const Navigation = () => {
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav className="mx-auto fw-bold">
-					<Nav.Link as={Link} to="/">
-						<strong>Inicio</strong>
-					</Nav.Link>
-					<Nav.Link as={Link} to="/about">
-						<strong>Sobre Nosotros</strong>
-					</Nav.Link>
-
-					{user ? (
+				{user ? (
+					<Nav className="mx-auto fw-bold">
+						<Nav.Link as={Link} to="/">
+							<strong>Inicio</strong>
+						</Nav.Link>
+						<Nav.Link as={Link} to="/profile">
+							<strong>Perfil</strong>
+						</Nav.Link>
+						{/* 	<Nav.Link as={Link} to="/dashboard">
+							<strong>Dashboard</strong>
+						</Nav.Link> */}
+					</Nav>
+				) : (
+					<Nav className="mx-auto fw-bold">
+						<Nav.Link as={Link} to="/">
+							<strong>Inicio</strong>
+						</Nav.Link>
+						<Nav.Link as={Link} to="/about">
+							<strong>Sobre Nosotros</strong>
+						</Nav.Link>
 						<Nav.Link as={Link} to="/contact">
 							<strong>Contacto</strong>
 						</Nav.Link>
-					) : (
-						''
-					)}
-				</Nav>
+					</Nav>
+				)}
+
 				<Nav>
 					{!user ? (
 						<Nav.Link as={Link} to="/login">
@@ -86,9 +97,9 @@ export const Navigation = () => {
 							<NavDropdown.Item as={Link} to="/profile">
 								<strong>Perfil</strong>
 							</NavDropdown.Item>
-							<NavDropdown.Item as={Link} to="/dashboard">
+							{/* 	<NavDropdown.Item as={Link} to="/dashboard">
 								<strong>Dashboard</strong>
-							</NavDropdown.Item>
+							</NavDropdown.Item> */}
 							<NavDropdown.Item onClick={handleLogout}>
 								<strong>Logout</strong>
 							</NavDropdown.Item>
