@@ -1,9 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MdMenu } from 'react-icons/md';
+
+const handleLogout = () => {
+	localStorage.removeItem('user');
+	navigate('/login', { replace: true });
+};
 
 export const NavbarDash = ({ Toggle }) => {
 	return (
-		<nav className="navbar navbar-expand-sm navbar-dark bg-transparent px-3 ">
+		<nav className="navbar navbar-expand px-3 ">
 			<MdMenu className="navbar-brand justify-content-left fs-1" onClick={Toggle} />
 
 			<button
@@ -14,7 +20,7 @@ export const NavbarDash = ({ Toggle }) => {
 				aria-label="Toggle navigation"
 			></button>
 			<div className="collapse navbar-collapse">
-				<ul className="navbar-nav ms-auto mt-2 mt-lg-0">
+				<ul className="navbar-nav me-auto mt-2 mt-lg-0">
 					<li className="nav-item dropdown">
 						<a
 							href=""
@@ -24,7 +30,7 @@ export const NavbarDash = ({ Toggle }) => {
 							aria-haspopup="true"
 							aria-expanded="false"
 						>
-							admin
+							Admin
 						</a>
 						<div className="dropdown-menu" aria-labelledby="dropdownId">
 							<a href="" className="dropdown-item">
@@ -33,9 +39,9 @@ export const NavbarDash = ({ Toggle }) => {
 							<a href="" className="dropdown-item">
 								Inicio
 							</a>
-							<a href="" className="dropdown-item">
+							<Link to="/" className="dropdown-item" onClick={handleLogout}>
 								Logout
-							</a>
+							</Link>
 						</div>
 					</li>
 				</ul>

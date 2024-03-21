@@ -47,50 +47,52 @@ export const ProductTable = ({ products, setProducts }) => {
 					<AddProductModal closeModal={() => setModalVisible(false)} />
 				)}
 			</div>
-			<table className="table caption-top bg-white rounded mt-2">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Producto</th>
-						<th scope="col">Descripcion</th>
-						<th scope="col">Precio</th>
-						<th scope="col">Cantidad</th>
-						<th scope="col">Acciones</th>
-					</tr>
-				</thead>
-				<tbody>
-					{products.map((product, index) => (
-						<tr key={index}>
-							<th scope="row">{index + 1}</th>
-							<td>{product.name}</td>
-							<td>{product.description}</td>
-							<td>{product.price}</td>
-							<td>{product.stock}</td>
-
-							<td>
-								<button
-									className="btn btn-success mx-1"
-									onClick={() => openEditProductModal(product)}
-								>
-									<FaEdit size={20} />
-								</button>
-								<button
-									className="btn btn-danger mx-1"
-									onClick={() => delProduct(product._id)}
-								>
-									<MdDelete size={20} />
-								</button>
-							</td>
+			<div className="table-responsive">
+				<table className="table caption-top table-hover table-sm table-striped table-dark rounded mt-2">
+					<thead>
+						<tr className="table-info">
+							<th scope="col">#</th>
+							<th scope="col">Producto</th>
+							<th scope="col">Descripcion</th>
+							<th scope="col">Precio</th>
+							<th scope="col">Cantidad</th>
+							<th scope="col">Acciones</th>
 						</tr>
-					))}
-				</tbody>
-				{selectedProduct && (
-					<EditProductModal
-						product={selectedProduct}
-						closeModal={() => setSelectedProduct(null)}
-					/>
-				)}
-			</table>
+					</thead>
+					<tbody>
+						{products.map((product, index) => (
+							<tr key={index}>
+								<th scope="row">{index + 1}</th>
+								<td>{product.name}</td>
+								<td>{product.description}</td>
+								<td>{product.price}</td>
+								<td>{product.stock}</td>
+
+								<td>
+									<button
+										className="btn btn-light mx-1"
+										onClick={() => openEditProductModal(product)}
+									>
+										<FaEdit size={20} />
+									</button>
+									<button
+										className="btn btn-danger mx-1"
+										onClick={() => delProduct(product._id)}
+									>
+										<MdDelete size={20} />
+									</button>
+								</td>
+							</tr>
+						))}
+					</tbody>
+					{selectedProduct && (
+						<EditProductModal
+							product={selectedProduct}
+							closeModal={() => setSelectedProduct(null)}
+						/>
+					)}
+				</table>
+			</div>
 		</>
 	);
 };

@@ -68,12 +68,16 @@ export const AddProductModal = ({ closeModal }) => {
 
 	return (
 		<Modal show={true} onHide={closeModal}>
-			<Modal.Header closeButton>
-				<Modal.Title>
-					Agregar Producto
-					{error && <div className="alert alert-danger">{error}</div>}
-				</Modal.Title>
-			</Modal.Header>
+			<div className="d-flex justify-content-between align-items-center mt-4 mx-3">
+				<Modal.Title>Agregar Producto</Modal.Title>
+				<button
+					type="button"
+					className="btn-close"
+					aria-label="Close"
+					onClick={closeModal}
+				></button>
+			</div>
+			{error && <div className="alert alert-danger my-2 mx-2">{error}</div>}
 			<Modal.Body>
 				<div className="mb-3">
 					<label htmlFor="name" className="form-label">

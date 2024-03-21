@@ -11,13 +11,13 @@ export const Dashboard = () => {
 	};
 
 	return (
-		<div className="container-fluid bg-secondary min-vh-100 ">
+		<div className="container-fluid bg-dark vh-100">
 			<div className="row">
-				{toggle && (
-					<div className="col-3 bg-white vh-100">
+				{/* 	{toggle && (
+					<div className="col-3 bg-dark">
 						<Sidebar />
 					</div>
-				)}
+				)} */}
 				<div className="col">
 					<PanelDash Toggle={Toggle} />
 				</div>

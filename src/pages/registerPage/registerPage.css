@@ -1,0 +1,30 @@
+@media screen and (max-width: 280px) {
+	.register {
+		margin-top: 0px;
+		padding-top: 0px;
+	}
+	.register h3 {
+		font-size: 18px;
+	}
+	.register .card {
+		padding: 20px !important;
+	}
+	.register .parrafo {
+		flex-direction: column;
+	}
+	.register .parrafo p {
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.card {
+		padding: 20px !important;
+	}
+	.parrafo {
+		flex-direction: column;
+	}
+	.parrafo p {
+		font-size: 14px;
+	}
+}

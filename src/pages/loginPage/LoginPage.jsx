@@ -47,16 +47,16 @@ export const LoginPage = () => {
 		postLogin(email, password);
 	};
 	return (
-		<div className="login d-flex justify-content-center align-items-center">
-			<div className="form_container p-5 rounded border">
+		<div className="login container col-lg-5 col-md-8 col-sm-6 col-xs-12 d-flex justify-content-center align-items-center">
+			<div className="form-container card border-secondary p-5 rounded border w-100 mx-auto">
 				<form onSubmit={handleLogin}>
-					<h3 className="text-center">Login</h3>
+					<h3 className="text-center pb-3">Iniciar Sesión</h3>
 					{error && <div className="alert alert-danger">{error}</div>}
-					<div className="mb-2">
-						<label htmlFor="email">Email</label>
+					<div className="mb-3">
+						<label htmlFor="email">Correo</label>
 						<input
 							type="email"
-							placeholder="Email"
+							placeholder="Correo"
 							className="form-control"
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
@@ -64,11 +64,11 @@ export const LoginPage = () => {
 						/>
 					</div>
 
-					<div className="mb-2">
-						<label htmlFor="password">Password</label>
+					<div className="mb-3">
+						<label htmlFor="password">Contraseña</label>
 						<input
 							type="password"
-							placeholder="Password"
+							placeholder="Contraseña"
 							className="form-control"
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
@@ -76,7 +76,7 @@ export const LoginPage = () => {
 						/>
 					</div>
 
-					<div className="mb-2">
+					<div className="mb-3">
 						<input
 							type="checkbox"
 							className="custom-control custom-checkbox"
@@ -88,14 +88,19 @@ export const LoginPage = () => {
 					</div>
 
 					<div className="d-grid">
-						<button className="btn btn-primary">Login</button>
+						<button className="btn btn-primary">Enviar</button>
 					</div>
-					<p className="text-end mt-2">
-						Olvidaste tu <Link to="">Contraseña?</Link>
-						<Link to="/register" className="ms-2">
-							Registro
-						</Link>
-					</p>
+					<div className="parrafo d-flex justify-content-between align-items-center mt-3">
+						<p className="text-end mt-2 ">
+							<Link to="/contraseña">¿Olvidaste tu Contraseña?</Link>
+						</p>
+						<p className="mt-2">
+							¿No estás registrado?
+							<Link to="/register" className="me-2">
+								Registro
+							</Link>
+						</p>
+					</div>
 				</form>
 			</div>
 		</div>

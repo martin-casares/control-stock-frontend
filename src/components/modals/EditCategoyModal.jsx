@@ -30,12 +30,16 @@ export const EditCategoryModal = ({ category, closeModal }) => {
 
 	return (
 		<Modal show={true} onHide={closeModal}>
-			<Modal.Header closeButton>
-				<Modal.Title>
-					Editar Categoría
-					{error && <div className="alert alert-danger fs-5">{error}</div>}
-				</Modal.Title>
-			</Modal.Header>
+			<div className="d-flex justify-content-between align-items-center mt-4 mx-3">
+				<Modal.Title>Editar Categoria</Modal.Title>
+				<button
+					type="button"
+					className="btn-close"
+					aria-label="Close"
+					onClick={closeModal}
+				></button>
+			</div>
+			{error && <div className="alert alert-danger my -2 mx-2">{error}</div>}
 			<Modal.Body>
 				<div className="mb-3">
 					<label htmlFor="name" className="form-label">
@@ -47,19 +51,6 @@ export const EditCategoryModal = ({ category, closeModal }) => {
 						id="name"
 						name="name"
 						value={editedCategory.name}
-						onChange={handleInputChange}
-					/>
-				</div>
-				<div className="mb-3">
-					<label htmlFor="description" className="form-label">
-						Descripción
-					</label>
-					<input
-						type="text"
-						className="form-control"
-						id="description"
-						name="description"
-						value={editedCategory.description}
 						onChange={handleInputChange}
 					/>
 				</div>

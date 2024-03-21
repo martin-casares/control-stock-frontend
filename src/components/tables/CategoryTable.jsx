@@ -48,44 +48,46 @@ export const CategoryTable = ({ categories, setCategories }) => {
 					<AddCategoryModal closeModal={() => setModalVisible(false)} />
 				)}
 			</div>
-			<table className="table caption-top bg-white rounded mt-2">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Categoria</th>
-						<th>Acciones</th>
-					</tr>
-				</thead>
-				<tbody>
-					{categories.map((category, index) => (
-						<tr key={index}>
-							<th scope="row">{index + 1}</th>
-							<td>{category.name}</td>
-
-							<td>
-								<button
-									className="btn btn-success mx-1"
-									onClick={() => openEditCategoryModal(category)}
-								>
-									<FaEdit size={20} />
-								</button>
-								<button
-									className="btn btn-danger mx-1"
-									onClick={() => delCategory(category._id)}
-								>
-									<MdDelete size={20} />
-								</button>
-							</td>
+			<div className="table-responsive">
+				<table className="table table-hover table-dark table-sm table-striped rounded mt-2">
+					<thead>
+						<tr className="table-info">
+							<th scope="col">#</th>
+							<th scope="col">Categoria</th>
+							<th>Acciones</th>
 						</tr>
-					))}
-				</tbody>
-				{selectedCategory && (
-					<EditCategoryModal
-						category={selectedCategory}
-						closeModal={() => setSelectedCategory(null)}
-					/>
-				)}
-			</table>
+					</thead>
+					<tbody>
+						{categories.map((category, index) => (
+							<tr key={index}>
+								<th scope="row">{index + 1}</th>
+								<td>{category.name}</td>
+
+								<td>
+									<button
+										className="btn btn-light mx-1"
+										onClick={() => openEditCategoryModal(category)}
+									>
+										<FaEdit size={20} />
+									</button>
+									<button
+										className="btn btn-danger mx-1"
+										onClick={() => delCategory(category._id)}
+									>
+										<MdDelete size={20} />
+									</button>
+								</td>
+							</tr>
+						))}
+					</tbody>
+					{selectedCategory && (
+						<EditCategoryModal
+							category={selectedCategory}
+							closeModal={() => setSelectedCategory(null)}
+						/>
+					)}
+				</table>
+			</div>
 		</div>
 	);
 };

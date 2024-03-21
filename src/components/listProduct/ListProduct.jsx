@@ -15,6 +15,13 @@ export const ListProduct = ({ searchTerm }) => {
 	const [selectedCategory, setSelectedCategory] = useState('');
 	const [categories, setCategories] = useState([]);
 
+	const [currentPage, setCurrentPage] = useState(1);
+	const [itemsPerPage] = useState(6);
+
+	const handlePageChange = (pageNumber) => {
+		setCurrentPage(pageNumber);
+	};
+
 	const fetchProducts = async () => {
 		try {
 			const fetchedProducts = await getProducts();
@@ -74,6 +81,13 @@ export const ListProduct = ({ searchTerm }) => {
 		filterProductsByCategory();
 	}, [selectedCategory, products]);
 
+	let indexOfLastItem, indexOfFirstItem, currentItems, totalPages;
+
+	totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+	indexOfLastItem = currentPage * itemsPerPage;
+	indexOfFirstItem = indexOfLastItem - itemsPerPage;
+	currentItems = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
+
 	return (
 		<div>
 			<div className="select-container m-auto col-xs-12 col-sm-8 col-md-6 col-lg-4  mb-5">
@@ -100,7 +114,7 @@ export const ListProduct = ({ searchTerm }) => {
 			</div>
 			{loading ? (
 				<div className="row ">
-					{filteredProducts.map((product) => {
+					{currentItems.map((product) => {
 						return (
 							<div
 								className="col-xs-12 col-sm-6 col-md-6 col-lg-4 mx-auto"
@@ -114,6 +128,24 @@ export const ListProduct = ({ searchTerm }) => {
 			) : (
 				<p>Cargando...</p>
 			)}
+
+			<div className="d-flex justify-content-center mt-5 mx-auto">
+				<ul className="pagination">
+					{Array.from({ length: totalPages }).map((_, index) => (
+						<li
+							key={index}
+							className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}
+						>
+							<button
+								className="page-link"
+								onClick={() => handlePageChange(index + 1)}
+							>
+								{index + 1}
+							</button>
+						</li>
+					))}
+				</ul>
+			</div>
 		</div>
 	);
 };

@@ -8,13 +8,15 @@ import { Footer } from '../../components/footer/Footer';
 
 export const Home = () => {
 	const [searchTerm, setSearchTerm] = useState('');
+
 	return (
 		<>
 			<Header />
 			<ProductSearch setSearchTerm={setSearchTerm} />
-			<div className="container-fluid ">
+			<div className="container ">
 				<ListProduct searchTerm={searchTerm} />
 			</div>
+
 			{/* por el momento dejo aqui el footer, cuando este listo el ruteo lo mando a app.jsx */}
 			<Footer />
 		</>
