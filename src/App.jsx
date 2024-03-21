@@ -9,6 +9,7 @@ import { ContactPage } from './pages/contactPage/ContactPage';
 import { Page404 } from './pages/Page404/Page404';
 import { ProtectedRoute } from './ProtectedRoute';
 import { Profile } from './components/profile/Profile';
+import { Footer } from './components/footer/Footer';
 
 function App() {
 	return (

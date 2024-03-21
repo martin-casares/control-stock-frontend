@@ -7,7 +7,7 @@ export const CardDash = ({ title, total }) => {
 		<div className="container-fluid">
 			<div className="row g-2 my-5">
 				<div className="col ">
-					<div className="shadow-sm border rounded bg-dark">
+					<div className="shadow-sm border rounded bg-primary">
 						<div className="p-2">
 							<p className="fs-3">{title}</p>
 						</div>
