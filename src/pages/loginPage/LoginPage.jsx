@@ -29,7 +29,7 @@ export const LoginPage = () => {
 
 			localStorage.setItem('user', JSON.stringify(user));
 
-			navigate('/dashboard');
+			navigate('/');
 			console.log('Inicio de sesión exitoso:', resp.data.message);
 		} catch (error) {
 			console.log(error.message);

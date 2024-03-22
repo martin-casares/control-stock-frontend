@@ -19,7 +19,7 @@ export const EditCategoryModal = ({ category, closeModal }) => {
 	const handleSaveChanges = () => {
 		const { name, description } = editedCategory;
 
-		if (!name || !description) {
+		if (!name) {
 			setError('Por favor, complete todos los campos.');
 			return;
 		}
