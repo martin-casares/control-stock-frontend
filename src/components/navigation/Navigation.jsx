@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUserCircle } from 'react-icons/fa';
 
 import './navigation.css';
-import { useState } from 'react';
+11;
 
 export const Navigation = () => {
 	const navigate = useNavigate();
@@ -16,34 +16,40 @@ export const Navigation = () => {
 		navigate('/login', { replace: true });
 	};
 
+	const isAdmin = (user) => {
+		return user.rol === 'admin';
+	};
+
 	return (
-		<Navbar expand="lg nav-container">
+		<Navbar expand="lg nav-container ">
 			<Navbar.Brand as={Link} to="/">
-				<strong style={{ fontSize: '40px', textTransform: 'uppercase' }}>TP</strong>
+				<div className="mt-1">
+					<strong className="title text-danger">Rolling Stock</strong>
+				</div>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
-			<Navbar.Collapse id="basic-navbar-nav">
-				{user ? (
-					<Nav className="mx-auto fw-bold">
-						<Nav.Link as={Link} to="/">
+			<Navbar.Collapse id="basic-navbar-nav" className="menu">
+				{user && isAdmin(user) ? (
+					<Nav className="fw-bold w-100 justify-content-center">
+						<Nav.Link as={Link} to="/" style={{ color: 'white' }}>
 							<strong>Inicio</strong>
 						</Nav.Link>
-						<Nav.Link as={Link} to="/profile">
+						<Nav.Link as={Link} to="/profile" style={{ color: 'white' }}>
 							<strong>Perfil</strong>
 						</Nav.Link>
-						{/* 	<Nav.Link as={Link} to="/dashboard">
+						<Nav.Link as={Link} to="/dashboard" style={{ color: 'white' }}>
 							<strong>Dashboard</strong>
-						</Nav.Link> */}
+						</Nav.Link>{' '}
 					</Nav>
 				) : (
 					<Nav className="mx-auto fw-bold">
-						<Nav.Link as={Link} to="/">
+						<Nav.Link as={Link} to="/" style={{ color: 'white' }}>
 							<strong>Inicio</strong>
 						</Nav.Link>
-						<Nav.Link as={Link} to="/about">
+						<Nav.Link as={Link} to="/about" style={{ color: 'white' }}>
 							<strong>Sobre Nosotros</strong>
 						</Nav.Link>
-						<Nav.Link as={Link} to="/contact">
+						<Nav.Link as={Link} to="/contact" style={{ color: 'white' }}>
 							<strong>Contacto</strong>
 						</Nav.Link>
 					</Nav>
@@ -51,7 +57,7 @@ export const Navigation = () => {
 
 				<Nav>
 					{!user ? (
-						<Nav.Link as={Link} to="/login">
+						<Nav.Link as={Link} to="/login" style={{ color: 'white' }}>
 							<FaUserCircle size={40} style={{ marginRight: '5px' }} />
 							<strong>Login</strong>
 						</Nav.Link>
@@ -65,19 +71,12 @@ export const Navigation = () => {
 												src={user.avatar}
 												alt={user.firstName}
 												width="45px"
-												className="mt-2"
-												style={{
-													width: '45px',
-													height: '40px',
-													borderRadius: '50%',
-													overflow: 'hidden',
-													marginRight: '5px',
-
-													border: '3px solid ',
-												}}
+												className="img-user"
 											/>
 
-											<strong style={{ paddingTop: '4px' }}>{user.firstName}</strong>
+											<strong style={{ paddingTop: '5px', color: 'white' }}>
+												{user.firstName}
+											</strong>
 										</>
 									) : (
 										<>
@@ -94,13 +93,21 @@ export const Navigation = () => {
 							}
 							id="basic-nav-dropdown"
 						>
-							<NavDropdown.Item as={Link} to="/profile">
+							<NavDropdown.Item as={Link} to="/profile" style={{ color: 'white' }}>
 								<strong>Perfil</strong>
 							</NavDropdown.Item>
-							{/* 	<NavDropdown.Item as={Link} to="/dashboard">
-								<strong>Dashboard</strong>
-							</NavDropdown.Item> */}
-							<NavDropdown.Item onClick={handleLogout}>
+							{user && isAdmin(user) ? (
+								<NavDropdown.Item
+									as={Link}
+									to="/dashboard"
+									style={{ color: 'white' }}
+								>
+									<strong>Dashboard</strong>
+								</NavDropdown.Item>
+							) : (
+								''
+							)}
+							<NavDropdown.Item onClick={handleLogout} style={{ color: 'white' }}>
 								<strong>Logout</strong>
 							</NavDropdown.Item>
 						</NavDropdown>
