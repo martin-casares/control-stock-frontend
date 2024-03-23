@@ -1,0 +1,88 @@
+.form-input {
+	width: 50%;
+}
+
+@media (min-width: 280px) {
+	.form-content {
+		display: flex;
+		flex-direction: column !important;
+	}
+	.form-input {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.form-btns {
+		width: 100%;
+	}
+}
+@media (min-width: 375px) {
+	.form-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.form-btns {
+		width: 100%;
+	}
+	.form-input {
+		width: 100%;
+		margin-left: 4px;
+	}
+}
+
+@media (min-width: 390px) {
+	.form-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.form-btns {
+		width: 100%;
+	}
+	.form-input {
+		width: 100%;
+	}
+}
+
+@media (min-width: 412px) {
+	.form-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.form-btns {
+		width: 100%;
+	}
+
+	.form-input {
+		width: 100%;
+	}
+}
+
+@media (min-width: 414px) {
+	.form-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.form-btns {
+		width: 100%;
+	}
+	.form-input {
+		width: 100%;
+	}
+}
+
+@media (min-width: 430px) {
+	.form-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.form-btns {
+		width: 100%;
+	}
+	.form-input {
+		width: 100%;
+	}
+}

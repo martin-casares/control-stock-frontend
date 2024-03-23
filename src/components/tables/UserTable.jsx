@@ -11,6 +11,7 @@ import { AddUserModal } from '../modals/AddUserModal';
 export const UserTable = ({ users, setUsers }) => {
 	const [selectedUser, setSelectedUser] = useState(null);
 	const [modalVisible, setModalVisible] = useState(false);
+	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
 		const fetchUsers = async () => {
@@ -36,20 +37,38 @@ export const UserTable = ({ users, setUsers }) => {
 		return user.rol === 'admin';
 	};
 
+	const filteredUsers = users.filter((user) =>
+		user.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+	);
+
 	return (
 		<>
-			<div className="d-flex justify-content-between mb-3">
-				<Link to="/" type="button" className="btn btn-primary mx-1">
-					Inicio
-				</Link>
-				<button
-					className="btn btn-primary btn btn-primary"
-					onClick={openAddUserModal}
-				>
-					Agregar Usuarios
-				</button>
-				{modalVisible && <AddUserModal closeModal={() => setModalVisible(false)} />}
+			<div className="form-content d-flex flex-row justify-content-between">
+				<div className="form-btns w-100 mx-auto d-flex justify-content-between  mb-3">
+					<Link to="/" type="button" className="btn btn-primary mx-1">
+						Inicio
+					</Link>
+					<button
+						className="btn btn-primary btn btn-primary"
+						onClick={openAddUserModal}
+					>
+						Agregar Usuarios
+					</button>
+					{modalVisible && (
+						<AddUserModal closeModal={() => setModalVisible(false)} />
+					)}
+				</div>
+				<div className="form-input me-auto d-flex justify-content-end ">
+					<input
+						type="text"
+						className="form-control"
+						placeholder="Buscar usuarios por apellido"
+						value={searchTerm}
+						onChange={(e) => setSearchTerm(e.target.value)}
+					/>
+				</div>
 			</div>
+
 			<div className="table-responsive">
 				<table className="table table-hover table-sm table-striped table-dark mt-2 ">
 					<thead>
@@ -63,7 +82,7 @@ export const UserTable = ({ users, setUsers }) => {
 						</tr>
 					</thead>
 					<tbody>
-						{users
+						{filteredUsers
 							/* 		.filter((user) => user.rol !== 'admin') */
 							.map((user, index) => (
 								<tr key={index}>
