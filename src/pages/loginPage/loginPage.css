@@ -5,6 +5,7 @@
 
 .login {
 	margin-top: 100px;
+	margin-bottom: 100px;
 }
 
 @media screen and (max-width: 280px) {
