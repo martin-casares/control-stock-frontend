@@ -58,7 +58,7 @@ export const CategoryTable = ({ categories, setCategories }) => {
 					<input
 						type="text"
 						className="form-control"
-						placeholder="Buscar productos..."
+						placeholder="Buscar categorias..."
 						value={searchTerm}
 						onChange={(e) => setSearchTerm(e.target.value)}
 					/>
