@@ -16,8 +16,6 @@ export const Home = () => {
 			<div className="container ">
 				<ListProduct searchTerm={searchTerm} />
 			</div>
-
-			{/* por el momento dejo aqui el footer, cuando este listo el ruteo lo mando a app.jsx */}
 			<Footer />
 		</>
 	);
