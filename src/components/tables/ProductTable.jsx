@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import './productTable.css';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
@@ -11,6 +12,7 @@ import { EditProductModal } from '../modals/EditProductModal';
 export const ProductTable = ({ products, setProducts }) => {
 	const [modalVisible, setModalVisible] = useState(false);
 	const [selectedProduct, setSelectedProduct] = useState(null);
+	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
 		const fetchProducts = async () => {
@@ -31,21 +33,38 @@ export const ProductTable = ({ products, setProducts }) => {
 		setModalVisible(true);
 	};
 
+	const filteredProducts = products.filter((product) =>
+		product.name.toLowerCase().includes(searchTerm.toLowerCase())
+	);
+
 	return (
 		<>
-			<div className="d-flex justify-content-between mb-3">
-				<Link to="/" type="button" className="btn btn-primary mx-1">
-					Inicio
-				</Link>
-				<button
-					className="btn btn-primary btn btn-primary"
-					onClick={openAddProductModal}
-				>
-					Agregar Productos
-				</button>
-				{modalVisible && (
-					<AddProductModal closeModal={() => setModalVisible(false)} />
-				)}
+			<div className="form-content d-flex flex-row justify-content-between">
+				<div className="form-btns w-100 mx-auto d-flex justify-content-between  mb-3">
+					<div>
+						<Link to="/" type="button" className="btn btn-primary">
+							Inicio
+						</Link>
+					</div>
+
+					<div>
+						<button className="btn btn-primary" onClick={openAddProductModal}>
+							Agregar Producto
+						</button>
+						{modalVisible && (
+							<AddProductModal closeModal={() => setModalVisible(false)} />
+						)}
+					</div>
+				</div>
+				<div className="form-input me-auto d-flex justify-content-end ">
+					<input
+						type="text"
+						className="form-control"
+						placeholder="Buscar productos..."
+						value={searchTerm}
+						onChange={(e) => setSearchTerm(e.target.value)}
+					/>
+				</div>
 			</div>
 			<div className="table-responsive">
 				<table className="table caption-top table-hover table-sm table-striped table-dark rounded mt-2">
@@ -60,7 +79,7 @@ export const ProductTable = ({ products, setProducts }) => {
 						</tr>
 					</thead>
 					<tbody>
-						{products.map((product, index) => (
+						{filteredProducts.map((product, index) => (
 							<tr key={index}>
 								<th scope="row">{index + 1}</th>
 								<td>{product.name}</td>
