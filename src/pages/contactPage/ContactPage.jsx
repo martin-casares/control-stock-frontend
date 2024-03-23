@@ -9,25 +9,34 @@ export const ContactPage = () => {
 	const [fullName, setFullName] = useState('');
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
+	const [error, setError] = useState('');
 
 	const sendEmail = async (e) => {
 		e.preventDefault();
 
 		if (!fullName || !email || !message) {
-			await Swal.fire({
+			/* 	await Swal.fire({
 				icon: 'error',
 				title: 'Campos vacíos',
 				text: 'Por favor, completa todos los campos del formulario.',
-			});
+			}); */
+			setError('Por favor, completa todos los campos del formulario.');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 			return;
 		}
 
 		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-			await Swal.fire({
+			/* 	await Swal.fire({
 				icon: 'error',
 				title: 'Email no valido',
 				text: 'Por favor, ingresa un email valido.',
-			});
+			}); */
+			setError('Por favor, ingresa un email valido.');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 			return;
 		}
 
@@ -43,12 +52,17 @@ export const ContactPage = () => {
 			setFullName('');
 			setEmail('');
 			setMessage('');
-
+			/* 
 			await Swal.fire({
 				icon: 'success',
 				title: '¡Éxito!',
 				text: 'El formulario se ha enviado correctamente.',
-			});
+			}); */
+
+			setError('El formulario se ha enviado correctamente.');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 		} catch (error) {
 			await Swal.fire({
 				icon: 'error',
@@ -64,6 +78,15 @@ export const ContactPage = () => {
 					<MdContactMail size={40} className="ms-3" />
 					Contacto
 				</h2>
+				{error && (
+					<div
+						style={{ width: '75%', margin: 'auto', marginBottom: '20px' }}
+						className="alert alert-danger"
+					>
+						{error}
+					</div>
+				)}
+
 				<div className="d-flex justify-content-center align-items-center rounded border ">
 					<form
 						ref={form}

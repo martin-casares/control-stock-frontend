@@ -32,8 +32,11 @@ export const LoginPage = () => {
 			navigate('/');
 			console.log('Inicio de sesión exitoso:', resp.data.message);
 		} catch (error) {
-			console.log(error.message);
-			setError(error.message);
+			console.log(error.response.data.message);
+			setError(error.response.data.message);
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 		}
 	};
 
@@ -42,8 +45,22 @@ export const LoginPage = () => {
 
 		if (!email || !password) {
 			setError('Por favor, complete todos los campos.');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
+
 			return;
 		}
+
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(email)) {
+			setError('Por favor, introduce un correo electrónico válido.');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
+			return;
+		}
+
 		postLogin(email, password);
 	};
 	return (

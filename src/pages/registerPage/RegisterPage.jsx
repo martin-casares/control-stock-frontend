@@ -36,6 +36,9 @@ export const RegisterPage = () => {
 		} catch (error) {
 			console.log(error.response.data.message);
 			setError(error.response.data.message);
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 		}
 	};
 
@@ -43,22 +46,34 @@ export const RegisterPage = () => {
 		e.preventDefault();
 		if (!firstName || !lastName || !email || !password || !confirmPassword) {
 			setError('Por favor, complete todos los campos.');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 			return;
 		}
 
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (!emailRegex.test(email)) {
 			setError('Por favor, introduce un correo electrónico válido.');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 			return;
 		}
 
 		if (password.length < 6) {
 			setError('La contraseña debe tener al menos 6 caracteres.');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 			return;
 		}
 
 		if (password !== confirmPassword) {
 			setError('Las contraseñas no coinciden');
+			setTimeout(() => {
+				setError('');
+			}, 2000);
 			return;
 		}
 
