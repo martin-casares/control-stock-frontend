@@ -40,7 +40,9 @@ export const Footer = () => {
 			<div className="footer-sections d-flex justify-content-center align-items-center">
 				<div className=" w-100 my-2 text-center">
 					<h3 className="fw-bold">Sobre Nosotros</h3>
-					<p className="">¿Quiénes Somos?</p>
+					<Link to="about" className="text-decoration-none footer-about">
+						¿Quiénes Somos?
+					</Link>
 					<p className="">Preguntas Frecuentes</p>
 				</div>
 
@@ -57,7 +59,7 @@ export const Footer = () => {
 			</div>
 			<div className="text-center my-5">
 				<p className="">&copy; 2024 Martín</p>
-				<p className="">Casi Todos los derechos reservados</p>
+				<p className="">Casi todos los derechos reservados</p>
 			</div>
 		</footer>
 	);

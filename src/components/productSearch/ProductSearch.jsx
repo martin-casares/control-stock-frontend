@@ -27,7 +27,7 @@ export const ProductSearch = ({ setSearchTerm }) => {
 
 	return (
 		<>
-			<div className="d-flex justify-content-center mb-5 col-xs-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
+			<div className="d-flex justify-content-center mb-5 col-xs-12 col-sm-8 col-md-6 col-lg-4 mx-auto div-container">
 				<form onSubmit={handleSubmit}>
 					{error ? (
 						<div className="error alert alert-danger m-3">
