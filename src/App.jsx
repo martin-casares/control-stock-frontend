@@ -7,10 +7,11 @@ import { Home } from './pages/homePage/Home';
 import { Navigation } from './components/navigation/Navigation';
 import { ContactPage } from './pages/contactPage/ContactPage';
 import { ProtectedRoute } from './ProtectedRoute';
+import { ProtectedRoute2 } from './ProtectedRoute2';
 import { AboutPage } from './pages/aboutPage/AboutPage';
 import { Page404 } from './pages/page404/Page404';
 import { Dashboard } from './pages/dashboard/Dashboard';
-import { Profile } from './components/profile/Profile';
+import { Profile } from './pages/profilePage/Profile';
 
 function App() {
 	return (
@@ -19,6 +20,10 @@ function App() {
 			<Routes>
 				<Route element={<ProtectedRoute />}>
 					<Route path="/dashboard" element={<Dashboard />} />
+					{/* 	<Route path="/profile" element={<Profile />} /> */}
+				</Route>
+
+				<Route element={<ProtectedRoute2 />}>
 					<Route path="/profile" element={<Profile />} />
 				</Route>
 
