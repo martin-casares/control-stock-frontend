@@ -1,0 +1,32 @@
+.about {
+	height: 35rem;
+}
+
+.about-title {
+	font-size: 4rem;
+	font-weight: 900;
+	margin-bottom: 3rem;
+}
+
+.about-subtitle {
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	letter-spacing: 0.1em;
+	word-spacing: 0.1em;
+}
+
+.about p {
+	letter-spacing: 0.1em;
+	word-spacing: 0.1em;
+}
+
+@media (min-width: 280px) {
+	.about {
+		height: 100%;
+		margin-top: 2rem;
+	}
+	.about-title {
+		font-size: 3rem;
+		text-align: center;
+	}
+}

@@ -89,8 +89,8 @@ export const ListProduct = ({ searchTerm }) => {
 	currentItems = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
 
 	return (
-		<div>
-			<div className="select-container m-auto col-xs-12 col-sm-8 col-md-6 col-lg-4  mb-5">
+		<div className="main-container">
+			<div className="select-container m-auto col-xs-12 col-sm-8 col-md-6 col-lg-4 mb-5">
 				<select
 					className="form-select"
 					aria-label="Size 3 select"
@@ -126,7 +126,7 @@ export const ListProduct = ({ searchTerm }) => {
 					})}
 				</div>
 			) : (
-				<p>Cargando...</p>
+				<div className="spinner mx-auto mt-5"></div>
 			)}
 
 			<div className="d-flex justify-content-center mt-5 mx-auto">

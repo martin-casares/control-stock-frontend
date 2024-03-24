@@ -1,3 +1,7 @@
+.footer-about {
+	color: inherit;
+	cursor: pointer;
+}
 /* media query fold */
 @media (min-width: 280px) {
 	.footer-sections {
