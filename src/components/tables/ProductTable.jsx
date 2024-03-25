@@ -83,7 +83,7 @@ export const ProductTable = ({ products, setProducts }) => {
 							<tr key={index}>
 								<th scope="row">{index + 1}</th>
 								<td>{product.name}</td>
-								<td>{product.description}</td>
+								<td>{product.description.substring(0, 20)}</td>
 								<td>{product.price}</td>
 								<td>{product.stock}</td>
 
