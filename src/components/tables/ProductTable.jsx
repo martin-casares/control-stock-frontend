@@ -5,26 +5,13 @@ import './productTable.css';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
-import { getProducts, delProduct } from '../../api/adminProducts';
+import { delProduct } from '../../api/adminProducts';
 import { AddProductModal } from '../modals/AddProductModal';
 import { EditProductModal } from '../modals/EditProductModal';
 
-export const ProductTable = ({ products, setProducts }) => {
+export const ProductTable = ({ products }) => {
 	const [modalVisible, setModalVisible] = useState(false);
 	const [selectedProduct, setSelectedProduct] = useState(null);
-	const [searchTerm, setSearchTerm] = useState('');
-
-	useEffect(() => {
-		const fetchProducts = async () => {
-			try {
-				const fetchedProducts = await getProducts();
-				setProducts(fetchedProducts);
-			} catch (error) {
-				console.error('Error al obtener productos:', error);
-			}
-		};
-		fetchProducts();
-	}, [products]);
 
 	const openEditProductModal = (product) => {
 		setSelectedProduct(product);
@@ -32,10 +19,6 @@ export const ProductTable = ({ products, setProducts }) => {
 	const openAddProductModal = () => {
 		setModalVisible(true);
 	};
-
-	const filteredProducts = products.filter((product) =>
-		product.name.toLowerCase().includes(searchTerm.toLowerCase())
-	);
 
 	return (
 		<>
@@ -56,15 +39,6 @@ export const ProductTable = ({ products, setProducts }) => {
 						)}
 					</div>
 				</div>
-				<div className="form-input me-auto d-flex justify-content-end ">
-					<input
-						type="text"
-						className="form-control"
-						placeholder="Buscar productos..."
-						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
-					/>
-				</div>
 			</div>
 			<div className="table-responsive">
 				<table className="table caption-top table-hover table-sm table-striped table-dark rounded mt-2">
@@ -79,7 +53,7 @@ export const ProductTable = ({ products, setProducts }) => {
 						</tr>
 					</thead>
 					<tbody>
-						{filteredProducts.map((product, index) => (
+						{products.map((product, index) => (
 							<tr key={index}>
 								<th scope="row">{index + 1}</th>
 								<td>{product.name}</td>

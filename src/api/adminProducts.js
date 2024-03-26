@@ -53,7 +53,14 @@ export const addProduct = async (product) => {
 };
 
 /* Editar producto */
-export const editProduct = async ({ name, description, price, stock, _id }) => {
+export const editProduct = async ({
+	name,
+	description,
+	price,
+	stock,
+	_id,
+	image,
+}) => {
 	try {
 		const token = localStorage.getItem('token');
 		await api.put(
@@ -64,6 +71,7 @@ export const editProduct = async ({ name, description, price, stock, _id }) => {
 				price,
 				stock,
 				_id,
+				image,
 			},
 			{
 				headers: {

@@ -10,6 +10,7 @@ export const EditProductModal = ({ product, closeModal }) => {
 		price: product.price,
 		stock: product.stock,
 		_id: product._id,
+		image: product.image,
 	});
 	const [error, setError] = useState('');
 
@@ -19,14 +20,12 @@ export const EditProductModal = ({ product, closeModal }) => {
 	};
 
 	const handleSaveChanges = () => {
-		const { name, description, price, stock } = editedProduct;
+		const { name, description, price, stock, image } = editedProduct;
 
-		if (!name || !description || !price || !stock) {
+		if (!name || !description || !price || !stock || !image) {
 			setError('Por favor, complete todos los campos.');
 			return;
 		}
-
-		// Validaciones adicionales si es necesario
 
 		editProduct(editedProduct);
 		closeModal();
@@ -98,19 +97,25 @@ export const EditProductModal = ({ product, closeModal }) => {
 						onChange={handleInputChange}
 					/>
 				</div>
-				{/* 	<div className="mb-3">
-					<label htmlFor="category" className="form-label">
-						Categoría
+				<div className="mb-3">
+					<label htmlFor="image" className="form-label">
+						Imagen
 					</label>
 					<input
 						type="text"
-						className="form-control"
-						id="category"
-						name="category"
-						value={editedProduct.category}
+						className="form-control mb-2"
+						id="image"
+						name="image"
+						value={editedProduct.image}
 						onChange={handleInputChange}
 					/>
-				</div> */}
+					<img
+						src={editedProduct.image}
+						alt="imagen producto"
+						width={60}
+						className="img-fluid"
+					/>
+				</div>
 			</Modal.Body>
 			<Modal.Footer>
 				<button className="btn btn-primary" onClick={handleSaveChanges}>
