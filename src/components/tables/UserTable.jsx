@@ -4,26 +4,13 @@ import { Link } from 'react-router-dom';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
-import { getUsers, delUser } from '../../api/adminUsers';
+import { delUser } from '../../api/adminUsers';
 import { EditUserModal } from '../modals/EditUserModal';
 import { AddUserModal } from '../modals/AddUserModal';
 
 export const UserTable = ({ users, setUsers }) => {
 	const [selectedUser, setSelectedUser] = useState(null);
 	const [modalVisible, setModalVisible] = useState(false);
-	const [searchTerm, setSearchTerm] = useState('');
-
-	useEffect(() => {
-		const fetchUsers = async () => {
-			try {
-				const fetchedUsers = await getUsers();
-				setUsers(fetchedUsers);
-			} catch (error) {
-				console.error('Error al obtener usuarios:', error);
-			}
-		};
-		fetchUsers();
-	}, [users]);
 
 	const openEditModal = (user) => {
 		setSelectedUser(user);
@@ -37,9 +24,9 @@ export const UserTable = ({ users, setUsers }) => {
 		return user.rol === 'admin';
 	};
 
-	const filteredUsers = users.filter((user) =>
+	/* 	const filteredUsers = users.filter((user) =>
 		user.lastName.toLowerCase().includes(searchTerm.toLowerCase())
-	);
+	); */
 
 	return (
 		<>
@@ -58,15 +45,6 @@ export const UserTable = ({ users, setUsers }) => {
 						<AddUserModal closeModal={() => setModalVisible(false)} />
 					)}
 				</div>
-				<div className="form-input me-auto d-flex justify-content-end ">
-					<input
-						type="text"
-						className="form-control"
-						placeholder="Buscar usuarios por apellido"
-						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
-					/>
-				</div>
 			</div>
 
 			<div className="table-responsive">
@@ -82,7 +60,7 @@ export const UserTable = ({ users, setUsers }) => {
 						</tr>
 					</thead>
 					<tbody>
-						{filteredUsers
+						{users
 							/* 		.filter((user) => user.rol !== 'admin') */
 							.map((user, index) => (
 								<tr key={index}>

@@ -4,26 +4,13 @@ import { Link } from 'react-router-dom';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
-import { getCategories, delCategory } from '../../api/adminCategory';
 import { AddCategoryModal } from '../modals/AddCategoyModal';
 import { EditCategoryModal } from '../modals/EditCategoyModal';
+import { delCategory } from '../../api/adminCategory';
 
-export const CategoryTable = ({ categories, setCategories }) => {
+export const CategoryTable = ({ categories }) => {
 	const [modalVisible, setModalVisible] = useState(false);
 	const [selectedCategory, setSelectedCategory] = useState(null);
-	const [searchTerm, setSearchTerm] = useState('');
-
-	useEffect(() => {
-		const fetchCategories = async () => {
-			try {
-				const fetchedCategories = await getCategories();
-				setCategories(fetchedCategories);
-			} catch (error) {
-				console.error('Error al obtener las categorias:', error);
-			}
-		};
-		fetchCategories();
-	}, [categories]);
 
 	const openEditCategoryModal = (category) => {
 		setSelectedCategory(category);
@@ -32,10 +19,6 @@ export const CategoryTable = ({ categories, setCategories }) => {
 	const openAddCategoryModal = () => {
 		setModalVisible(true);
 	};
-
-	const filteredCategories = categories.filter((category) =>
-		category.name.toLowerCase().includes(searchTerm.toLowerCase())
-	);
 
 	return (
 		<div>
@@ -54,15 +37,6 @@ export const CategoryTable = ({ categories, setCategories }) => {
 						<AddCategoryModal closeModal={() => setModalVisible(false)} />
 					)}
 				</div>
-				<div className="form-input me-auto d-flex justify-content-end ">
-					<input
-						type="text"
-						className="form-control"
-						placeholder="Buscar categorias..."
-						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
-					/>
-				</div>
 			</div>
 			<div className="table-responsive">
 				<table className="table table-hover table-dark table-sm table-striped rounded mt-2">
@@ -74,7 +48,7 @@ export const CategoryTable = ({ categories, setCategories }) => {
 						</tr>
 					</thead>
 					<tbody>
-						{filteredCategories.map((category, index) => (
+						{categories.map((category, index) => (
 							<tr key={index}>
 								<th scope="row">{index + 1}</th>
 								<td>{category.name}</td>
