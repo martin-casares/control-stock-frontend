@@ -6,7 +6,7 @@ export const Header = () => {
 	return (
 		<>
 			<div className="header-container text-center py-3 mx-1">
-				<h2 className="header-title text-success-emphasis">Find your product.</h2>
+				<h2 className="header-title text-success-emphasis">Control de Stock</h2>
 				<br />
 				<div className="w-50 " style={{ margin: 'auto' }}>
 					{/* <p className="text-center">

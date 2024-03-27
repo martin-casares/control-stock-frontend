@@ -100,6 +100,7 @@ export const LoginPage = () => {
 								type="checkbox"
 								className="custom-control custom-checkbox"
 								id="check"
+								disabled
 							/>
 							<label htmlFor="check" className="custom-input-label mx-2">
 								Recuerdame

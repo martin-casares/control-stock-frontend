@@ -37,3 +37,15 @@
 		font-size: 14px;
 	}
 }
+
+@media screen and (max-width: 390px) {
+	.card {
+		padding: 20px !important;
+	}
+	.parrafo {
+		flex-direction: column;
+	}
+	.parrafo p {
+		font-size: 14px;
+	}
+}
